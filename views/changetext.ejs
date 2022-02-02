@@ -1,0 +1,28 @@
+<%- include('header'); -%>
+
+    <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+    </div>
+
+    <div class="box">
+
+        
+            <form action="/delete" method="post">
+                <%for(var i=0; i<newListItem.length; i++) { %>
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%= newListItem[i]._id %>" onChange="this.form.submit()">
+                    <p><%= newListItem[i].item%></p>
+                </div>
+                <%} %>
+            </form>
+        
+        
+        <form action="<%=postAddress%>" method="post" class="item2">
+            <input type="text" id="addItemBox" name="newItem" placeholder="Add item">
+                <button type="submit" class="addButton">+</button>
+        </form>
+    </div>
+        <form class="resetForm" action="/reset" method="post">
+            <button type="submit" name="reset" class="resetButton">Reset</button>
+        </form>
+    
